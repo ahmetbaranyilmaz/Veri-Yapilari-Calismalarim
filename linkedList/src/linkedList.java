@@ -1,6 +1,6 @@
 class linkedList{
 
-    node head = null;
+    node head = null; // head degerimizi atiyoruz
 
     public void insert(int newData){
         if (head == null){
@@ -79,6 +79,78 @@ class linkedList{
         return -1;
     }
 
+    public int getSize(node head){
+        if (head==null)
+            return 0;
+        else
+            return 1+getSize(head.next);
+    }
+
+    public int getCount(){
+        return getSize(head);
+    }
+
+    public void reversePrint(node head){
+        if (head==null)return;
+        reversePrint(head.next);
+        System.out.print(head.data + " ");
+    }
+
+    public void delete(int data){
+        node temp = head;
+        node prev = null;
+
+        if (temp == null) return;
+
+        if (temp!=null && temp.data == data){
+            temp = temp.next;
+            return;
+        }
+
+        while (temp!=null && temp.data != data){
+            prev = temp;
+            temp = temp.next;
+        }
+
+        prev.next = temp.next;
+    }
+
+    public void deleteIndex(int index){
+        node temp = head;
+        node prev = null;
+
+        int counter = 0;
+
+        if (temp == null) return;
+
+        if (index>=getSize(temp)) return;
+
+        if (temp!= null && counter==index){
+            temp = temp.next;
+            return;
+        }
+
+        while (temp!=null && counter!= index){
+            prev = temp;
+            temp = temp.next;
+            counter++;
+        }
+
+        prev.next = temp.next;
+    }
+
+    public void mergeList(node newHead){
+        node temp = head;
+        if (temp == null && newHead == null) return;
+        if (temp == null && newHead != null) head = newHead;
+        if (temp != null && newHead == null) return;
+        if (temp != null && newHead != null){
+            while (temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = newHead;
+        }
+    }
 }
 class node{
     int data;
