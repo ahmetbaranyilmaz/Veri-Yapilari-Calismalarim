@@ -1,8 +1,8 @@
 class linkedList{
 
-    node head = null; // head degerimizi atiyoruz
+    node head = null;
 
-    public void insert(int newData){
+    public void insert(int newData){ // deger ekleme
         if (head == null){
             head = new node(newData);
             return;
@@ -15,7 +15,7 @@ class linkedList{
         last.next = newNode;
     }
 
-    public void printList(){
+    public void printList(){ // elemanlari gosterme
         node pointNode = head;
         while (pointNode!=null){
             System.out.print(pointNode.data+" ");
@@ -24,7 +24,7 @@ class linkedList{
         System.out.println();
     }
 
-    public void basaEkle(int newData){
+    public void basaEkle(int newData){ // basa ekleme
         if (head==null){
             head = new node(newData);
             return;
@@ -35,7 +35,7 @@ class linkedList{
         head = newNode;
     }
 
-    public int getLenght(){
+    public int getLenght(){ // uzunluk bulma
         int counter =0;
         node temp = head;
         while (temp!=null){
@@ -45,7 +45,7 @@ class linkedList{
         return counter;
     }
 
-    public int getDataIndex(int data){
+    public int getDataIndex(int data){ // dataya gore index bulma
         int counter = 0;
         node temp = head;
         while (temp!=null){
@@ -60,7 +60,7 @@ class linkedList{
         return -1;
     }
 
-    public int getIndex(int index){
+    public int getIndex(int index){ // indexe gore data bulma
         if (index>=getLenght()){
             return -1;
         }
@@ -79,7 +79,7 @@ class linkedList{
         return -1;
     }
 
-    public int getSize(node head){
+    public int getSize(node head){ // recursive sekilde uzunluk bulma
         if (head==null)
             return 0;
         else
@@ -90,13 +90,13 @@ class linkedList{
         return getSize(head);
     }
 
-    public void reversePrint(node head){
+    public void reversePrint(node head){ // tersten gosterme
         if (head==null)return;
         reversePrint(head.next);
         System.out.print(head.data + " ");
     }
 
-    public void delete(int data){
+    public void delete(int data){ // degere gore silme islemi
         node temp = head;
         node prev = null;
 
@@ -115,7 +115,7 @@ class linkedList{
         prev.next = temp.next;
     }
 
-    public void deleteIndex(int index){
+    public void deleteIndex(int index){ // Indexe gore silme islemi
         node temp = head;
         node prev = null;
 
@@ -139,7 +139,7 @@ class linkedList{
         prev.next = temp.next;
     }
 
-    public void mergeList(node newHead){
+    public void mergeList(node newHead){ // iki linkedListi birlestirmek icin
         node temp = head;
         if (temp == null && newHead == null) return;
         if (temp == null && newHead != null) head = newHead;
