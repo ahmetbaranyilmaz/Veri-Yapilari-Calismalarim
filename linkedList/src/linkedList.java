@@ -151,6 +151,24 @@ class linkedList{
             temp.next = newHead;
         }
     }
+
+    public void insertList(node listHead,int index){
+        if (index>=getSize(head)) return;
+        if (index<0)return;
+        if (listHead == null)return;
+        node temp = head;
+        int counter =0;
+        while (temp!= null && index!=counter){
+            temp = temp.next;
+            counter++;
+        }
+        node x = temp.next;
+        temp.next = listHead;
+        while (listHead.next!= null){
+            listHead = listHead.next;
+        }
+        listHead.next = x;
+    }
 }
 class node{
     int data;

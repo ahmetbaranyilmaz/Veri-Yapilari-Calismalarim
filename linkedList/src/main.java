@@ -57,5 +57,19 @@ public class main {
         list3.mergeList(list4.head); // bos olan list3'e dolu list4 eklendi
         list3.printList(); // yeni list3 gosterildi. hata yok
 
+        System.out.print("list: ");
+        list.printList(); // list gosterildi
+
+        System.out.print("list3: ");
+        list3.printList(); // list3 gosterildi
+
+        list.insertList(list3.head,4); // list3 list'in 4. indexsinin sagina eklendi
+        list.printList(); // list gosterildi
+
+        linkedList emptyList = new linkedList(); // bos liste olusturuldu
+        System.out.print("list2: ");
+        list2.printList(); // list 2 gosterildi
+        list2.insertList(emptyList.head,3); // bos liste eklenmeye calisildi
+        list2.printList(); // hata vermiyor
     }
 }
