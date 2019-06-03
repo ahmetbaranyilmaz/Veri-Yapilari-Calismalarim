@@ -7,12 +7,11 @@ class linkedList{
             head = new node(newData);
             return;
         }
-        node newNode = new node(newData);
         node last = head;
         while (last.next!=null){
             last = last.next;
         }
-        last.next = newNode;
+        last.next = new node(newData);
     }
 
     public void printList(){ // elemanlari gosterme
